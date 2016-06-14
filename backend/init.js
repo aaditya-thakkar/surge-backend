@@ -1,9 +1,9 @@
 var config = require('../config.json');
 var request = require('request');
-
-
 var appname = config.appbase.appname;
 var my_type = config.appbase.type;
+
+// Update the mapping of location to geo_point
 request({
   url: 'http://scalr.api.appbase.io/'+appname+'/_mapping/'+my_type+'?ignore_conflicts=true', //URL to hit
   headers: {
