@@ -16,16 +16,6 @@
   "license": "MIT",
   "dependencies": {
     "appbase-js": "^0.10.7",
-    "browserify": "^13.0.1",
-    "cli-spinner": "^0.2.5",
-    "connect": "^2.14.4",
-    "connect-livereload": "^0.5.4",
-    "gulp": "^3.9.1",
-    "react": "^15.1.0",
-    "react-addons-pure-render-mixin": "^15.1.0",
-    "react-dom": "^15.1.0",
-    "reactify": "^1.1.1",
-    "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {}
 }
