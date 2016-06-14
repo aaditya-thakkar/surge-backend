@@ -2,7 +2,7 @@ var locationGenerator = require('./locationGenerator');
 var appbaseRef = require('./appbase').appbaseRef;
 var config = require('../config.json');
 
-module.exports = function demandAndSupplyGenerator(){
+module.exports = function nodeGenerator(){
   // timeout for a new demand after one is generated
   var timeout = 1000;
   var maxNumberOfNodes = 1000;
