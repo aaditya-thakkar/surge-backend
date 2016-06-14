@@ -1,5 +1,5 @@
 const http = require('http');
-var nodeGenerator = require('./nodeGenerator');
+var nodeGenerator = require('./backend/nodeGenerator');
 
 const server = http.createServer(function(req, res) {
   res.end();
