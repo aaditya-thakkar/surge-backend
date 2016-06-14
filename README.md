@@ -7,5 +7,5 @@ npm install
 
 To start simulation, Run:
 ```
-node nodeGenerator.js
+node simulator.js
 ```  
