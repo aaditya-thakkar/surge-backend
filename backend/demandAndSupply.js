@@ -1,4 +1,4 @@
-var dataGenerator = require('./datagenerator');
+var locationGenerator = require('./locationGenerator');
 var helper = require('./helper');
 var config = require('../config.json');
 
@@ -35,7 +35,7 @@ module.exports = function demandAndSupplyGenerator(){
     setTimeout(function() {
       var latLongData = {
         object_type: type,
-        location: [parseFloat(dataGenerator.generateLatLong().long), parseFloat(dataGenerator.generateLatLong().lat)]
+        location: [parseFloat(locationGenerator.generateLatLong().long), parseFloat(locationGenerator.generateLatLong().lat)]
       };
 
       var requestObject = {
