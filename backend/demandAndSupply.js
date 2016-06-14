@@ -7,7 +7,13 @@ module.exports = function demandAndSupplyGenerator(){
   var timeout = 1000;
   var maxNumberOfNodes = 1000;
   var indexArray = [];
+
+  // Randomly generate the demander & Supplier
   for (var index = 0; index < maxNumberOfNodes; index++){
+    generateNode();
+  }
+
+  function generateNode(){
     var weight = Math.random();
     if(weight>0.5){
       enterIntoAppbase(index, 'demander');
@@ -20,9 +26,8 @@ module.exports = function demandAndSupplyGenerator(){
     setTimeout(function() {
       deleteFromAppbase(indexArray[0]);
       indexArray.splice(0,1);
+      generateNode();
     },index*1000);
-
-
   }
 
   // enter demander's location into appbase table
