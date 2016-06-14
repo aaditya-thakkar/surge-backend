@@ -1,13 +1,13 @@
 var config = require('../config.json');
 var request = require('request');
 var appname = config.appbase.appname;
-var my_type = config.appbase.type;
+var type = config.appbase.type;
 
 // Update the mapping of location to geo_point
 request({
-  url: 'http://scalr.api.appbase.io/'+appname+'/_mapping/'+my_type+'?ignore_conflicts=true', //URL to hit
+  url: 'http://scalr.api.appbase.io/' + appname + '/_mapping/' + type + '?ignore_conflicts=true',
   headers: {
-    Authorization: 'Basic '+ new Buffer(config.appbase.username + ':' + config.appbase.password).toString('base64')
+    Authorization: 'Basic ' + new Buffer(config.appbase.username + ':' + config.appbase.password).toString('base64')
   },
   json: {
     "coordinates": {
@@ -18,9 +18,9 @@ request({
       }
     }
   },
-  method: 'PUT' //Specify the method
-}, function(error, response, body){
-  if(error) {
+  method: 'PUT'
+}, function(error, response, body) {
+  if (error) {
     console.log(error);
   } else {
     console.log(response.statusCode, body);
