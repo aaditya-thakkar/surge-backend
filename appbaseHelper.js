@@ -1,3 +1,4 @@
+var locationGenerator = require('./locationGenerator');
 var Appbase = require('appbase-js');
 var config = require('./config.json');
 var appbaseRef = new Appbase({
@@ -6,9 +7,11 @@ var appbaseRef = new Appbase({
   username: config.appbase.username,
   password: config.appbase.password
 })
+// timeout for a new demand after one is generated
+var timeout = 1000;
 module.exports = {
   // enter demander's location into appbase table
-  indexIntoAppbase: function(index, type) {
+  index: function(index, type) {
     setTimeout(function() {
       var latLongData = {
         object_type: type,
@@ -29,7 +32,7 @@ module.exports = {
 
     }, index * timeout);
   },
-  deleteFromAppbase: function(index) {
+  delete: function(index) {
     setTimeout(function() {
       var requestObject = {
         type: config.appbase.type,

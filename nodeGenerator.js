@@ -1,9 +1,7 @@
-var locationGenerator = require('./locationGenerator');
 var appbaseHelper = require('./appbaseHelper');
 
 function nodeGenerator() {
-  // timeout for a new demand after one is generated
-  var timeout = 1000;
+
   var maxNumberOfNodes = 1000;
   var indexArray = [];
 
