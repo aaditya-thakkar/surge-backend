@@ -31,10 +31,9 @@ module.exports = {
     };
 
     var weight = Math.random();
-    if(weight<0.8){
+    if (weight < 0.8) {
       return latLong;
-    }
-    else {
+    } else {
       return latLongEx;
     }
 

@@ -2,36 +2,35 @@ var locationGenerator = require('./locationGenerator');
 var appbaseRef = require('./appbase').appbaseRef;
 var config = require('../config.json');
 
-module.exports = function nodeGenerator(){
+module.exports = function nodeGenerator() {
   // timeout for a new demand after one is generated
   var timeout = 1000;
   var maxNumberOfNodes = 1000;
   var indexArray = [];
 
   // Randomly generate the demander & Supplier
-  for (var index = 0; index < maxNumberOfNodes; index++){
+  for (var index = 0; index < maxNumberOfNodes; index++) {
     generateNode();
   }
 
-  function generateNode(){
+  function generateNode() {
     var weight = Math.random();
-    if(weight>0.5){
+    if (weight > 0.5) {
       indexIntoAppbase(index, 'demander');
       indexArray.push(index);
-    }
-    else {
+    } else {
       indexIntoAppbase(index, 'supplier');
       indexArray.push(index);
     }
     setTimeout(function() {
       deleteFromAppbase(indexArray[0]);
-      indexArray.splice(0,1);
+      indexArray.splice(0, 1);
       generateNode();
-    },index*1000);
+    }, index * 1000);
   }
 
   // enter demander's location into appbase table
-  function indexIntoAppbase(index, type){
+  function indexIntoAppbase(index, type) {
     setTimeout(function() {
       var latLongData = {
         object_type: type,
@@ -50,22 +49,22 @@ module.exports = function nodeGenerator(){
         console.log(error);
       });
 
-    }, index*timeout);
+    }, index * timeout);
   }
 
   function deleteFromAppbase(index) {
     setTimeout(function() {
-    var requestObject = {
-      type: config.appbase.type,
-      id: index.toString()
-    };
+      var requestObject = {
+        type: config.appbase.type,
+        id: index.toString()
+      };
 
-    appbase.appbaseRef.delete(requestObject).on('data', function(response) {
-      console.log("deleted");
-      console.log(response);
-    }).on('error', function(error) {
-      console.log(error);
-    });
-  }, index*timeout);
+      appbase.appbaseRef.delete(requestObject).on('data', function(response) {
+        console.log("deleted");
+        console.log(response);
+      }).on('error', function(error) {
+        console.log(error);
+      });
+    }, index * timeout);
   }
 };
