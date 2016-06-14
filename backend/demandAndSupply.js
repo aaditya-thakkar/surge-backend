@@ -16,11 +16,11 @@ module.exports = function demandAndSupplyGenerator(){
   function generateNode(){
     var weight = Math.random();
     if(weight>0.5){
-      enterIntoAppbase(index, 'demander');
+      indexIntoAppbase(index, 'demander');
       indexArray.push(index);
     }
     else {
-      enterIntoAppbase(index, 'supplier');
+      indexIntoAppbase(index, 'supplier');
       indexArray.push(index);
     }
     setTimeout(function() {
@@ -31,7 +31,7 @@ module.exports = function demandAndSupplyGenerator(){
   }
 
   // enter demander's location into appbase table
-  function enterIntoAppbase(index, type){
+  function indexIntoAppbase(index, type){
     setTimeout(function() {
       var latLongData = {
         object_type: type,
