@@ -1,5 +1,5 @@
 var locationGenerator = require('./locationGenerator');
-var helper = require('./helper');
+var appbaseRef = require('./appbase').appbaseRef;
 var config = require('../config.json');
 
 module.exports = function demandAndSupplyGenerator(){
@@ -44,7 +44,7 @@ module.exports = function demandAndSupplyGenerator(){
         body: latLongData,
       };
       // appbase index query
-      var addedDemand = helper.appbaseRef.index(requestObject).on('data', function(response) {
+      var addedDemand = appbaseRef.index(requestObject).on('data', function(response) {
         console.log(response);
       }).on('error', function(error) {
         console.log(error);
@@ -60,7 +60,7 @@ module.exports = function demandAndSupplyGenerator(){
       id: index.toString()
     };
 
-    helper.appbaseRef.delete(requestObject).on('data', function(response) {
+    appbase.appbaseRef.delete(requestObject).on('data', function(response) {
       console.log("deleted");
       console.log(response);
     }).on('error', function(error) {
