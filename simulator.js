@@ -1,5 +1,6 @@
 var locationGenerator = require('./locationGenerator');
 var Appbase = require('appbase-js');
+var Spinner = require('cli-spinner').Spinner;
 var config = require('./config.json');
 var appbaseRef = new Appbase({
   url: 'https://scalr.api.appbase.io',
@@ -56,4 +57,7 @@ function generateNode(index) {
 for (var index = 0; index <= maxNumberOfNodes; index++) {
   setTimeout(generateNode.bind(null, index), index * timeBetweenInsertions);
 }
-console.log("Simulation has started...")
+console.log("Simulation has successfully started!")
+var spinner = new Spinner('%s Simulating..');
+spinner.setSpinnerString(18);
+spinner.start();
