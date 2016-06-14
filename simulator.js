@@ -56,3 +56,4 @@ function generateNode(index) {
 for (var index = 0; index <= maxNumberOfNodes; index++) {
   setTimeout(generateNode.bind(null, index), index * timeBetweenInsertions);
 }
+console.log("Simulation has started...")
