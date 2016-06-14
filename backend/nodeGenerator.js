@@ -59,7 +59,7 @@ module.exports = function nodeGenerator() {
         id: index.toString()
       };
 
-      appbase.appbaseRef.delete(requestObject).on('data', function(response) {
+      appbaseRef.delete(requestObject).on('data', function(response) {
         console.log("deleted");
         console.log(response);
       }).on('error', function(error) {
