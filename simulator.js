@@ -10,7 +10,7 @@ var appbaseRef = new Appbase({
 })
 
 var maxNumberOfNodes = 10;
-var timeBetweenInsertions = 1000;
+var timeBetweenInsertions = 2000;
 
 // enter demander's location into appbase table
 function addNode(index, type) {
